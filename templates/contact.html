@@ -1,0 +1,178 @@
+{% extends "layout.html" %}
+
+{% block title %}Contact Us - Volleyball Court Reservation{% endblock %}
+
+{% block meta_description %}Get in touch with the Volleyball Court Reservation team. We're here to help with any questions or support you might need.{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <h1 class="mb-4">Contact Us</h1>
+            
+            <div class="row mb-5">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-envelope-fill text-primary fs-1 mb-3"></i>
+                            <h3 class="h5">Email Us</h3>
+                            <p>For general inquiries and support</p>
+                            <a href="mailto:support@volleyballcourts.com" class="btn btn-outline-primary">support@volleyballcourts.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-telephone-fill text-primary fs-1 mb-3"></i>
+                            <h3 class="h5">Call Us</h3>
+                            <p>Monday to Friday, 9am - 5pm</p>
+                            <a href="tel:+18005551234" class="btn btn-outline-primary">1-800-555-1234</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card mb-5">
+                <div class="card-body">
+                    <h2 class="h4 mb-4">Send Us a Message</h2>
+                    <form id="contact-form">
+                        <div class="mb-3">
+                            <label for="contact-name" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="contact-name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contact-email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="contact-email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contact-subject" class="form-label">Subject</label>
+                            <select class="form-select" id="contact-subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Technical Support</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="court-listing">List My Court</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contact-message" class="form-label">Message</label>
+                            <textarea class="form-control" id="contact-message" rows="5" required></textarea>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="contact-terms" required>
+                            <label class="form-check-label" for="contact-terms">
+                                I agree to the <a href="{{ url_for('privacy_policy') }}" target="_blank">Privacy Policy</a>
+                            </label>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="h4 mb-3">Frequently Asked Questions</h2>
+                    <div class="accordion" id="contact-faq">
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    How do I list my volleyball court on your platform?
+                                </button>
+                            </h3>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#contact-faq">
+                                <div class="accordion-body">
+                                    <p>To list your volleyball court, please select "List My Court" from the subject dropdown in our contact form above. Our team will reach out to you with more information about our onboarding process and requirements.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    What is your response time for inquiries?
+                                </button>
+                            </h3>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#contact-faq">
+                                <div class="accordion-body">
+                                    <p>We strive to respond to all inquiries within 24-48 business hours. For urgent matters, please call our support number for faster assistance.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Do you offer support for technical issues with the platform?
+                                </button>
+                            </h3>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#contact-faq">
+                                <div class="accordion-body">
+                                    <p>Yes, we provide technical support for all users of our platform. Please select "Technical Support" from the subject dropdown and describe the issue you're experiencing in detail. Our support team will help you resolve the problem.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    How can I provide feedback about your service?
+                                </button>
+                            </h3>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#contact-faq">
+                                <div class="accordion-body">
+                                    <p>We value your feedback! Please select "Feedback" from the subject dropdown and share your thoughts with us. Your input helps us improve our platform and services.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contact-form');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const name = document.getElementById('contact-name').value;
+                const email = document.getElementById('contact-email').value;
+                const subject = document.getElementById('contact-subject').value;
+                const message = document.getElementById('contact-message').value;
+                
+                // Here you would typically send the data to your backend
+                // For now, we'll simulate a successful submission
+                
+                // Show loading state
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const originalBtnText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Sending...';
+                submitBtn.disabled = true;
+                
+                // Simulate API call
+                setTimeout(function() {
+                    // Reset form and show success message
+                    contactForm.reset();
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                    
+                    // Use showAlert function from app.js if available
+                    if (typeof showAlert === 'function') {
+                        showAlert('Thank you for your message! We\'ll get back to you soon.', 'success');
+                    } else {
+                        alert('Thank you for your message! We\'ll get back to you soon.');
+                    }
+                }, 1500);
+            });
+        }
+    });
+</script>
+{% endblock %}
+{% endblock %} 

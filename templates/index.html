@@ -1,0 +1,220 @@
+{% extends "layout.html" %}
+
+{% block title %}Home - Volleyball Court Reservation{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row" id="home-content">
+        <div class="col-lg-6">
+            <h1>Find and Reserve Volleyball Courts</h1>
+            <p class="lead">Discover, book, and play on the best volleyball courts in your area.</p>
+            <div class="mb-4">
+                <a href="/courts" class="btn btn-primary btn-lg">Find Courts</a>
+                <a href="#" class="btn btn-outline-secondary btn-lg ms-2" id="how-it-works-btn">How It Works</a>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Quick Search</h5>
+                    <form id="quick-search-form">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="search-date" class="form-label">Date</label>
+                                <input type="date" class="form-control" id="search-date" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="search-time" class="form-label">Time</label>
+                                <select class="form-select" id="search-time">
+                                    <option value="">Any time</option>
+                                    <option value="morning">Morning (6AM - 12PM)</option>
+                                    <option value="afternoon">Afternoon (12PM - 5PM)</option>
+                                    <option value="evening">Evening (5PM - 10PM)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="search-surface" class="form-label">Surface</label>
+                                <select class="form-select" id="search-surface">
+                                    <option value="">Any surface</option>
+                                    <option value="sand">Sand</option>
+                                    <option value="indoor">Indoor</option>
+                                    <option value="grass">Grass</option>
+                                    <option value="hard">Hard Court</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="search-location" class="form-label">Location</label>
+                                <input type="text" class="form-control" id="search-location" placeholder="City or ZIP code">
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-success w-100">Search Courts</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card h-100">
+                <div class="card-body p-0">
+                    <div id="featured-courts-carousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="{{ url_for('static', filename='img/court1.jpg') }}" class="d-block w-100" alt="Featured Court">
+                                <div class="carousel-caption">
+                                    <h5>Premium Indoor Courts</h5>
+                                    <p>State-of-the-art facilities for competitive play</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ url_for('static', filename='img/court2.jpg') }}" class="d-block w-100" alt="Beach Court">
+                                <div class="carousel-caption">
+                                    <h5>Beach Volleyball</h5>
+                                    <p>Professional sand courts for beach volleyball enthusiasts</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ url_for('static', filename='img/court3.jpg') }}" class="d-block w-100" alt="Outdoor Court">
+                                <div class="carousel-caption">
+                                    <h5>Outdoor Courts</h5>
+                                    <p>Perfect for recreational games with friends</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#featured-courts-carousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#featured-courts-carousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Courts Section -->
+    <div class="mt-5">
+        <h2 class="mb-4">Featured Courts</h2>
+        <div class="row" id="featured-courts-list">
+            <!-- Content will be loaded dynamically via JavaScript -->
+            <div class="col-12 text-center">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- How It Works Section -->
+    <div class="mt-5 py-4 bg-light rounded">
+        <div class="container">
+            <h2 class="text-center mb-4">How It Works</h2>
+            <div class="row">
+                <div class="col-md-4 text-center mb-4">
+                    <div class="how-it-works-circle">
+                        <i class="bi bi-search"></i>
+                    </div>
+                    <h4>Find a Court</h4>
+                    <p>Search for available courts based on location, date, time, and surface type.</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <div class="how-it-works-circle">
+                        <i class="bi bi-calendar-check"></i>
+                    </div>
+                    <h4>Book a Slot</h4>
+                    <p>Select your preferred time slot and complete the reservation process.</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <div class="how-it-works-circle">
+                        <i class="bi bi-person-check"></i>
+                    </div>
+                    <h4>Play & Enjoy</h4>
+                    <p>Arrive at the court, show your confirmation, and enjoy your game!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- How It Works Modal -->
+<div class="modal fade" id="how-it-works-modal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">How It Works</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="bg-light rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                            <i class="bi bi-search fs-1"></i>
+                        </div>
+                        <h5>Find a Court</h5>
+                        <p>Search for available courts based on location, date, time, and surface type.</p>
+                    </div>
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="bg-light rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                            <i class="bi bi-calendar-check fs-1"></i>
+                        </div>
+                        <h5>Book a Slot</h5>
+                        <p>Select your preferred time slot and complete the reservation process.</p>
+                    </div>
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="bg-light rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                            <i class="bi bi-person-check fs-1"></i>
+                        </div>
+                        <h5>Play & Enjoy</h5>
+                        <p>Arrive at the court, show your confirmation, and enjoy your game!</p>
+                    </div>
+                </div>
+                <hr>
+                <h5>Frequently Asked Questions</h5>
+                <div class="accordion" id="faq-accordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                How do I cancel a reservation?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+                            <div class="accordion-body">
+                                You can cancel a reservation up to 48 hours before your scheduled time without penalty. Simply go to "My Reservations" in your account, find the reservation you want to cancel, and click the "Cancel" button.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                What happens if all courts are booked?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+                            <div class="accordion-body">
+                                You can join the waitlist for a specific court and time slot. If someone cancels their reservation, the system will automatically notify you, and you'll have the opportunity to book that slot.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                Can I make recurring reservations?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+                            <div class="accordion-body">
+                                Yes, you can set up weekly, bi-weekly, or monthly recurring reservations. This feature is perfect for teams with regular practice schedules.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="/courts" class="btn btn-primary">Find Courts</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

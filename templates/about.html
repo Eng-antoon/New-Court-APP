@@ -1,0 +1,145 @@
+{% extends "layout.html" %}
+
+{% block title %}About Us - Volleyball Court Reservation{% endblock %}
+
+{% block meta_description %}Learn about the Volleyball Court Reservation platform, our mission, and the team behind this service.{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <h1 class="mb-4">About Volleyball Court Reservation</h1>
+            
+            <div class="card mb-5">
+                <div class="card-body">
+                    <h2 class="h4 card-title">Our Mission</h2>
+                    <p class="card-text">
+                        At Volleyball Court Reservation, we aim to make court reservations effortless for volleyball enthusiasts. 
+                        Our platform connects players with courts, eliminating the hassle of phone calls, waiting in lines, 
+                        or uncertainty about court availability.
+                    </p>
+                </div>
+            </div>
+            
+            <h2 class="h3 mb-4">Who We Are</h2>
+            <p class="lead">
+                Founded by volleyball players for volleyball players, our team understands the challenges of finding and booking courts.
+            </p>
+            <p>
+                Our platform was created to solve common frustrations faced by volleyball players trying to reserve courts. 
+                Too often, players experience:
+            </p>
+            <ul class="mb-4">
+                <li>Uncertainty about court availability</li>
+                <li>Time-consuming phone calls or in-person visits</li>
+                <li>Lack of information about court facilities and amenities</li>
+                <li>Difficulty organizing games with teammates</li>
+            </ul>
+            <p>
+                We've built a solution that addresses these pain points by providing real-time availability, 
+                instant booking capabilities, detailed court information, and user-friendly features for team coordination.
+            </p>
+            
+            <div class="bg-light p-4 rounded mb-5">
+                <h2 class="h3 mb-3">Our Values</h2>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="d-flex">
+                            <div class="me-3">
+                                <i class="bi bi-shield-check text-primary fs-1"></i>
+                            </div>
+                            <div>
+                                <h3 class="h5">Reliability</h3>
+                                <p>We ensure our platform provides accurate, up-to-date information about court availability.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex">
+                            <div class="me-3">
+                                <i class="bi bi-lightning-charge text-primary fs-1"></i>
+                            </div>
+                            <div>
+                                <h3 class="h5">Simplicity</h3>
+                                <p>We keep the reservation process straightforward and user-friendly.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex">
+                            <div class="me-3">
+                                <i class="bi bi-people text-primary fs-1"></i>
+                            </div>
+                            <div>
+                                <h3 class="h5">Community</h3>
+                                <p>We foster a sense of community among volleyball players and court owners.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex">
+                            <div class="me-3">
+                                <i class="bi bi-arrow-repeat text-primary fs-1"></i>
+                            </div>
+                            <div>
+                                <h3 class="h5">Innovation</h3>
+                                <p>We continuously improve our platform based on user feedback and needs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h2 class="h3 mb-4">For Court Owners</h2>
+            <p>
+                If you own or manage volleyball courts, our platform offers significant benefits:
+            </p>
+            <div class="row mb-5">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="h5 card-title"><i class="bi bi-calendar-check text-success me-2"></i>Simplified Management</h3>
+                            <p class="card-text">Manage court bookings, maintenance, and availability all in one place.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="h5 card-title"><i class="bi bi-graph-up text-success me-2"></i>Increased Visibility</h3>
+                            <p class="card-text">Get discovered by more players in your area looking for courts.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="h5 card-title"><i class="bi bi-receipt text-success me-2"></i>Reduced Administration</h3>
+                            <p class="card-text">Automate booking processes and reduce time spent on administrative tasks.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="h5 card-title"><i class="bi bi-star text-success me-2"></i>Improved Customer Experience</h3>
+                            <p class="card-text">Offer a modern, convenient booking experience for your customers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <h2 class="h3 mb-4">Join Our Community Today</h2>
+                <p class="lead mb-4">
+                    Ready to experience hassle-free court reservations?
+                </p>
+                <div>
+                    <a href="/courts" class="btn btn-primary btn-lg me-2">Find Courts</a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-outline-secondary btn-lg">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
